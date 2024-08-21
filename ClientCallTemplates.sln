@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ClientCallTemplates", "ClientCallTemplates\ClientCallTemplates.fsproj", "{4592CBA6-732A-4609-9E01-375E84056BBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4592CBA6-732A-4609-9E01-375E84056BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4592CBA6-732A-4609-9E01-375E84056BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4592CBA6-732A-4609-9E01-375E84056BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4592CBA6-732A-4609-9E01-375E84056BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {509F7653-1C23-4073-850A-F0D5D25EA700}
+	EndGlobalSection
+EndGlobal
