@@ -49,7 +49,7 @@ module CallRestApiWeatherThoth =
                     printfn "Day %d - Temperature: %s, Wind: %s" f.DayThoth f.TemperatureThoth f.WindThoth
             )                                      
     
-    let runRestApiWeatherThoth () = getWeather "Ostrava"
+    let runRestApiWeatherThoth () = getWeather "Ostrava Airport"
 
 (*
     ./weather-api

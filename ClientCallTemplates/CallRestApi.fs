@@ -35,6 +35,24 @@ module CallRestApi =
                 return! Response.deserializeJsonAsync<HelloResponseGet> response                 
             }
 
+    let getFromRestApiAsync () =
+
+        async
+            {
+                let url = "http://localhost:8080/api/greetings/greet?name=Alice"
+
+                let! responseComplete = //jen jako template
+                    http 
+                        {
+                            GET url
+                        }
+                    |> Request.sendAsync
+
+                let! response = get >> Request.sendAsync <| url   
+                
+                return! Response.deserializeJsonAsync<HelloResponseGet> response                 
+            }
+
     //************************* POST ****************************
 
     // Define the payload type as used in the POST handler    
@@ -146,6 +164,9 @@ module CallRestApi =
 
         let response = getFromRestApi () |> Async.RunSynchronously
         printfn "Message: %s\nTimestamp: %s" response.Message response.Timestamp
+
+        let response1 = getFromRestApiAsync () |> Async.RunSynchronously
+        printfn "MessageGetAsync: %s\nTimestamp: %s" response1.Message response1.Timestamp
 
         let response2 = postToRestApi () |> Async.RunSynchronously
         printfn "Message: %s" response2.Message 
