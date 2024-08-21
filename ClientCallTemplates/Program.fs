@@ -8,9 +8,9 @@ open TestAPI
 
 module API = 
     
-    CallRestApiWeather.runRestApiWeather ()
+    //CallRestApiWeather.runRestApiWeather ()
     
-    CallRestApiWeatherThoth.runRestApiWeatherThoth ()
+    //CallRestApiWeatherThoth.runRestApiWeatherThoth ()
 
     //Console.ReadKey() |> ignore
 

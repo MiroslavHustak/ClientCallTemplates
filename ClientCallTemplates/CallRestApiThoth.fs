@@ -12,6 +12,8 @@ open ThothDeserializationCoders
 
 module CallRestApiThoth =
 
+    let private apiKey = "your-secure-api-key"
+
     //************************* GET ****************************
 
     let getFromRestApi () =
@@ -19,17 +21,17 @@ module CallRestApiThoth =
         async
             {
                 let url = "http://localhost:8080/" 
+                
+                
+                let! response = 
+                    http 
+                        {
+                            GET url
+                            header "X-API-KEY" apiKey 
+                        }
+                    |> Request.sendAsync                                
 
-                (*
-                    let! responseComplete = //jen jako template pro obecne pripady
-                        http 
-                            {
-                                GET url
-                            }
-                        |> Request.sendAsync
-                *)                
-
-                let! response = get >> Request.sendAsync <| url  
+                //let! response = get >> Request.sendAsync <| url  
                 let! jsonString = Response.toTextAsync response 
                 
                 return
@@ -50,7 +52,15 @@ module CallRestApiThoth =
                 {
                     let url = "http://localhost:8080/api/greetings/greet?name=Alice"
     
-                    let! response = get >> Request.sendAsync <| url  
+                    let! response = 
+                        http 
+                            {
+                                GET url
+                                header "X-API-KEY" apiKey 
+                            }
+                        |> Request.sendAsync 
+
+                    //let! response = get >> Request.sendAsync <| url  
                     let! jsonString = Response.toTextAsync response 
                     
                     return
@@ -84,6 +94,7 @@ module CallRestApiThoth =
                     http
                         {
                             POST url
+                            header "X-API-KEY" apiKey 
                             body                              
                             json thothJsonPayload
                         }
@@ -122,6 +133,7 @@ module CallRestApiThoth =
                     http
                         {
                             PUT url
+                            header "X-API-KEY" apiKey 
                             body 
                             json thothJsonPayload
                         }
