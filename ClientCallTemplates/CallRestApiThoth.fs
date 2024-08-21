@@ -44,6 +44,27 @@ module CallRestApiThoth =
                                     }                
             }
 
+    let getFromRestApiAsync () =
+    
+            async
+                {
+                    let url = "http://localhost:8080/api/greetings/greet?name=Alice"
+    
+                    let! response = get >> Request.sendAsync <| url  
+                    let! jsonString = Response.toTextAsync response 
+                    
+                    return
+                        Decode.fromString decoderGet jsonString   
+                        |> function
+                            | Ok value ->
+                                        value
+                            | Error _  ->  
+                                        { 
+                                            Message = String.Empty
+                                            Timestamp = String.Empty
+                                        }                               
+                }
+
     //************************* POST ****************************
     
     let postToRestApi () =
@@ -129,6 +150,9 @@ module CallRestApiThoth =
 
         let response = getFromRestApi () |> Async.RunSynchronously
         printfn "Message: %s\nTimestamp: %s" response.Message response.Timestamp
+
+        let response1 = getFromRestApiAsync () |> Async.RunSynchronously
+        printfn "MessageGetAsync: %s\nTimestamp: %s" response1.Message response1.Timestamp
 
         let response2 = postToRestApi () |> Async.RunSynchronously
         printfn "Message: %s" response2.Message 
