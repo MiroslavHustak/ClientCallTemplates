@@ -35,7 +35,7 @@ module CallRestApi =
                 return! Response.deserializeJsonAsync<HelloResponseGet> response                 
             }
 
-    let getFromRestApiAsync () =
+    let getFromRestApiWithParam () =
 
         async
             {
@@ -163,16 +163,16 @@ module CallRestApi =
     let runRestApi () = 
 
         let response = getFromRestApi () |> Async.RunSynchronously
-        printfn "Message: %s\nTimestamp: %s" response.Message response.Timestamp
+        printfn "\n\nMessageGet: %s\nTimestamp: %s" response.Message response.Timestamp
 
-        let response1 = getFromRestApiAsync () |> Async.RunSynchronously
-        printfn "MessageGetAsync: %s\nTimestamp: %s" response1.Message response1.Timestamp
+        let response1 = getFromRestApiWithParam () |> Async.RunSynchronously
+        printfn "\n\nMessageGetWithParam: %s\nTimestamp: %s" response1.Message response1.Timestamp
 
         let response2 = postToRestApi () |> Async.RunSynchronously
-        printfn "Message: %s" response2.Message 
+        printfn "\n\nMessagePost: %s" response2.Message 
         
         let response3 = putToRestApi () |> Async.RunSynchronously
-        printfn "Message: %s" response3.Message 
+        printfn "\n\nMessagePut: %s" response3.Message 
         printfn "Updated: %A" response3.UpdatedDataTableInfo
 
 

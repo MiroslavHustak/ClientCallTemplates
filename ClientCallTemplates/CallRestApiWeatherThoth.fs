@@ -41,7 +41,7 @@ module CallRestApiWeatherThoth =
         printfn "Temperature: %s" result.TemperatureThoth
         printfn "Wind: %s" result.WindThoth
         printfn "Description: %s" result.DescriptionThoth
-        printfn "\nForecast: "
+        printfn "Forecast: "
                                       
         result.ForecastThoth
         |> Seq.iter 

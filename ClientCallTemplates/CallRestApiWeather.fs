@@ -73,7 +73,7 @@ module CallRestApiWeather =
         printfn "Temperature: %s" result.Temperature
         printfn "Wind: %s" result.Wind
         printfn "Description: %s" result.Description
-        printfn "\nForecast: "
+        printfn "Forecast: "
 
         result.Forecast
         |> List.iter 

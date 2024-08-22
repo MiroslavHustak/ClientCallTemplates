@@ -10,7 +10,7 @@ module API =
     
     //CallRestApiWeather.runRestApiWeather ()
     
-    //CallRestApiWeatherThoth.runRestApiWeatherThoth ()
+    CallRestApiWeatherThoth.runRestApiWeatherThoth ()
 
     //Console.ReadKey() |> ignore
 
