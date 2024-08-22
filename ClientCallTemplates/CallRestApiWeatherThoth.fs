@@ -44,7 +44,7 @@ module CallRestApiWeatherThoth =
         printfn "Forecast: "
                                       
         result.ForecastThoth
-        |> Seq.iter 
+        |> List.iter 
             (fun f ->
                     printfn "Day %d - Temperature: %s, Wind: %s" f.DayThoth f.TemperatureThoth f.WindThoth
             )                                      
